@@ -1,0 +1,28 @@
+{
+  "name": "babel-plugin-intlized-components",
+  "version": "0.1.0",
+  "main": "./lib/index.js",
+  "description": "Babel plugin for intlized-components",
+  "author": "Markus Wetzel <markuswetzel@gmx.net>",
+  "license": "MIT",
+  "keywords": ["react", "redux", "i18n", "intl", "internationalization"],
+  "repository": "https://github.com/ProAI/intlized-components.git",
+  "bugs": {
+    "url": "https://github.com/ProAI/intlized-components/issues"
+  },
+  "scripts": {
+    "build": "./node_modules/.bin/babel -d lib/ src/",
+    "watch": "./node_modules/.bin/babel -d lib/ -w src/",
+    "lint": "./node_modules/.bin/eslint src"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "babel-cli": "6.26.0",
+    "eslint": "4.9.0",
+    "react-kickstarter": "0.3.0"
+  },
+  "engines": {
+    "npm": ">=3",
+    "node": ">=5"
+  }
+}
