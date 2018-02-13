@@ -42,7 +42,7 @@ export default function () {
         // temporarily store messages
         definitions.get('properties').forEach((definition) => {
           const messages = state.file.get('translations');
-          const id = `${getValue(scope.get('value'))}.${getKey(definition.get('key'))}`;
+          const id = `${getValue(scope)}.${getKey(definition.get('key'))}`;
           const defaultMessage = getValue(definition.get('value'));
 
           messages.set(id, {
