@@ -15,6 +15,11 @@
     "watch": "./node_modules/.bin/babel -d lib/ -w src/",
     "lint": "./node_modules/.bin/eslint src"
   },
+  "files": [
+    "dist",
+    "es",
+    "lib"
+  ],
   "dependencies": {},
   "devDependencies": {
     "babel-cli": "6.26.0",
