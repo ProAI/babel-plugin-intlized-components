@@ -1,4 +1,4 @@
-const FUNCTION_NAME = 'defineTranslations';
+const FUNCTION_NAME = 'createDict';
 
 const isDefineTranslationsFunction = (path, state) => {
   const callee = path.get('callee');
