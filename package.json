@@ -18,22 +18,20 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/babel -d lib/ src/",
-    "watch": "./node_modules/.bin/babel -d lib/ -w src/",
-    "lint": "./node_modules/.bin/eslint src"
+    "watch": "./node_modules/.bin/babel -d lib/ -w src/"
   },
   "files": [
-    "dist",
-    "es",
     "lib"
   ],
   "dependencies": {},
   "devDependencies": {
-    "babel-cli": "6.26.0",
-    "eslint": "4.9.0",
-    "react-kickstarter": "0.3.0"
+    "packsy": "0.1.7",
+    "@babel/cli": "7.4.3",
+    "@babel/core": "7.4.3",
+    "@babel/preset-env": "7.4.3"
   },
   "engines": {
-    "npm": ">=3",
-    "node": ">=5"
+    "node": ">= 8",
+    "npm": ">= 5"
   }
 }
