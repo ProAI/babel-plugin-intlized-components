@@ -1,6 +1,6 @@
 {
   "name": "babel-plugin-intlized-components",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "main": "./lib/index.js",
   "description": "Babel plugin for intlized-components",
   "author": "Markus Wetzel <markuswetzel@gmx.net>",
@@ -25,10 +25,10 @@
   ],
   "dependencies": {},
   "devDependencies": {
-    "packsy": "0.1.7",
     "@babel/cli": "7.4.3",
     "@babel/core": "7.4.3",
-    "@babel/preset-env": "7.4.3"
+    "@babel/preset-env": "7.4.3",
+    "packsy": "0.1.7"
   },
   "engines": {
     "node": ">= 8",
