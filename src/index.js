@@ -1,3 +1,5 @@
+const nodePath = require('path');
+
 const FUNCTION_NAME = 'createDict';
 
 const isDefineTranslationsFunction = (path, state) => {
@@ -15,7 +17,7 @@ const isDefineTranslationsFunction = (path, state) => {
 const getKey = path => path.node.name;
 const getValue = path => path.evaluate().value;
 
-export default function () {
+export default function(babel) {
   return {
     pre(file) {
       file.set('translations', new Map());
@@ -35,12 +37,37 @@ export default function () {
           return;
         }
 
+        if (state.opts.autoResolveKey && path.node.arguments.length === 1) {
+          if (!state.file.opts.filename) {
+            throw new Error(
+              'Filename not found by babel-plugin-intlized-components.',
+            );
+          }
+
+          const key = nodePath
+            .relative(process.env.NODE_PATH, state.file.opts.filename)
+            .replace(/\\/g, '/')
+            .replace(/\//g, '.')
+            .split('.')
+            .slice(0, -1)
+            .join('.');
+
+          path.replaceWith(
+            babel.types.callExpression(path.node.callee, [
+              babel.types.stringLiteral(key),
+              path.node.arguments[0],
+            ]),
+          );
+
+          path.stop();
+        }
+
         // parse translations
         const scope = path.get('arguments')[0];
         const definitions = path.get('arguments')[1];
 
         // temporarily store translations
-        definitions.get('properties').forEach((definition) => {
+        definitions.get('properties').forEach(definition => {
           const translations = state.file.get('translations');
           const id = `${getValue(scope)}.${getKey(definition.get('key'))}`;
           const defaultMessage = getValue(definition.get('value'));
