@@ -28,7 +28,7 @@
     "@babel/cli": "7.4.3",
     "@babel/core": "7.4.3",
     "@babel/preset-env": "7.4.3",
-    "packsy": "0.1.7"
+    "packsy": "0.1.8"
   },
   "engines": {
     "node": ">= 8",
