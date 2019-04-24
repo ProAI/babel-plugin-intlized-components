@@ -45,7 +45,7 @@ export default function(babel) {
           }
 
           const key = nodePath
-            .relative(process.env.NODE_PATH, state.file.opts.filename)
+            .relative(state.opts.autoResolveKey, state.file.opts.filename)
             .replace(/\\/g, '/')
             .replace(/\//g, '.')
             .split('.')
