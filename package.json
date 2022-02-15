@@ -18,17 +18,18 @@
   },
   "scripts": {
     "build": "./node_modules/.bin/babel -d lib/ src/",
-    "watch": "./node_modules/.bin/babel -d lib/ -w src/"
+    "watch": "./node_modules/.bin/babel -d lib/ -w src/",
+    "prepublishOnly": "yarn build"
   },
   "files": [
     "lib"
   ],
   "dependencies": {},
   "devDependencies": {
-    "@babel/cli": "7.4.3",
-    "@babel/core": "7.4.3",
-    "@babel/preset-env": "7.4.3",
-    "packsy": "0.1.8"
+    "@babel/cli": "7.17.3",
+    "@babel/core": "7.17.3",
+    "@babel/preset-env": "7.16.11",
+    "packsy": "0.2.2"
   },
   "engines": {
     "node": ">= 8",
