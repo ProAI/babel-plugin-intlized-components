@@ -64,6 +64,10 @@ import { createDict } from 'my-custom-import';
 const dict = createDict(...);
 ```
 
+#### `ignoreImport`
+
+If this option is set to `true`, imports will not be verified. This means that all functions named `createDict` will be transformed no matter what the import is. While this option might be helpful in some cases, you need to be careful as you should not name other functions `createDict`.
+
 #### `autoResolveKey`
 
 Normally you have to set a key as the first parameter and a message object as the second parameter for `createDict`. If you set this option to the base path of your application, the babel plugin will derive the first parameter from the file name, so that you can call `createDict` with a message object only.
