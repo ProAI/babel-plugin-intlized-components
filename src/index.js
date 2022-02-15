@@ -4,6 +4,15 @@ const FUNCTION_NAME = 'createDict';
 
 const isDefineTranslationsFunction = (path, state) => {
   const callee = path.get('callee');
+
+  if (callee.node.name !== FUNCTION_NAME) {
+    return false;
+  }
+
+  if (state.opts.ignoreImport) {
+    return true;
+  }
+
   if (
     callee.referencesImport('intlized-components', FUNCTION_NAME) ||
     callee.referencesImport(state.opts.customImportName, FUNCTION_NAME)
