@@ -23,10 +23,10 @@ const isDefineTranslationsFunction = (path, state) => {
   return false;
 };
 
-const getKey = path => path.node.name;
-const getValue = path => path.evaluate().value;
+const getKey = (path) => path.node.name;
+const getValue = (path) => path.evaluate().value;
 
-export default function(babel) {
+export default function (babel) {
   return {
     pre(file) {
       file.set('translations', new Map());
@@ -68,7 +68,7 @@ export default function(babel) {
             ]),
           );
 
-          path.stop();
+          path.skip();
         }
 
         // parse translations
@@ -76,7 +76,7 @@ export default function(babel) {
         const definitions = path.get('arguments')[1];
 
         // temporarily store translations
-        definitions.get('properties').forEach(definition => {
+        definitions.get('properties').forEach((definition) => {
           const translations = state.file.get('translations');
           const id = `${getValue(scope)}.${getKey(definition.get('key'))}`;
           const defaultMessage = getValue(definition.get('value'));
